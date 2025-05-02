@@ -19,15 +19,27 @@ public class Cutter : MonoBehaviour
     private Queue<(int, int)> q = new Queue<(int, int)>();
     private bool[,] c;
     private bool[,] taieri;
+    private bool[,] taierinoi;
     private int cnt = 0;
 
     void Start()
     {
         v = new bool[3, 3];
         cnt = 0;
-        taieri = new bool[3, 3] {{true, false, false}, {false, true, false}, {false, false, true}};
+        taieri = new bool[3, 3] {{false, false, false}, {false, false, false}, {false, false, false}};
         endPoint = GameObject.Find("EndPoint").transform;
     }
+
+    public void ToggleTaieri(int row, int col)
+    {
+        taierinoi = taieri;
+        if (row >= 0 && row < 3 && col >= 0 && col < 3)
+        {
+            taierinoi[row, col] = !taieri[row, col]; // Inversează valoarea
+            taieri = taierinoi;
+        }
+    }
+
     void Update()
     {
 
@@ -69,10 +81,8 @@ public class Cutter : MonoBehaviour
             {
                 for(int j = 0; j < 3; j ++)
                 {
-                    //UnityEngine.Debug.Log($"{i + 1} {j + 1} {v[i, j]} {c[i, j]} {taieri[i, j]}");
                     if(v[i, j] && !c[i, j] && !taieri[i, j])
                     {
-                        //UnityEngine.Debug.Log("intra");
                         rez.Add((i, j));
                         c[i, j] = true;
                         q.Enqueue((i, j));
@@ -80,7 +90,6 @@ public class Cutter : MonoBehaviour
                         while(q.Count > 0)
                         {
                             var tp = q.Dequeue();
-                            //UnityEngine.Debug.Log($"{tp.Item1 + 1} {tp.Item2 + 1}");
                             for(int h = 0; h < 4; h ++)
                             {
                                 int x = tp.Item1 + dx[h];
@@ -105,13 +114,16 @@ public class Cutter : MonoBehaviour
                         if(cutterType == CutterType.Recycler)
                         {
                             foreach (var it in rez)
+                            {
                                 rasp1[cnt, it.Item1, it.Item2] = true;
+                            }
                             cnt++;
                             rez.Clear();
                         }
                     }
                 }
             }
+        
             if(cutterType == CutterType.Trasher)
             {
                 foreach(var it in rez)
@@ -135,6 +147,7 @@ public class Cutter : MonoBehaviour
                 {
                     for(int j = 0; j < 3; j ++)
                     {
+
                         other.GetComponent<BooleanGridRuntimeRenderer>().setCell(i, j, rasp1[0, i, j]);
                         g2.GetComponent<BooleanGridRuntimeRenderer>().setCell(i, j, rasp1[1, i, j]);
                     }
@@ -146,6 +159,7 @@ public class Cutter : MonoBehaviour
                 Wait();
                 g2.GetComponent<BooleanGridRuntimeRenderer>().UpdateGridRendering();
             }
+            rasp1 = new bool[10, 3, 3];
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(ReenableTrigger());
         }
