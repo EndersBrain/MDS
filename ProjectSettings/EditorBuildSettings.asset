@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 13d183b2eb9685349b02d26f3662dc06
   - enabled: 1
-    path: Assets/Scenes/laba2.unity
+    path: Assets/Scenes/Main Workspace.unity
     guid: ef6a2b9a1291ddb4fa9bc8ec0661973a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
