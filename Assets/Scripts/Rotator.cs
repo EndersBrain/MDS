@@ -52,7 +52,6 @@ public class Rotator : MonoBehaviour
             other.GetComponent<BooleanGridRuntimeRenderer>().UpdateGridRendering();
         }
     }
-    // Update is called once per frame
     void Update()
     {
 
