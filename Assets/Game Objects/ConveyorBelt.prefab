@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5019013241098738643}
   - component: {fileID: 539675405916973609}
   - component: {fileID: 7099894753901877673}
+  - component: {fileID: -4747947574500582529}
   m_Layer: 0
   m_Name: ConveyorBelt
   m_TagString: INFILL
@@ -80,6 +81,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
+  - {x: 2, y: 5, z: 0}
   - {x: 0, y: 5, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 15, y: 0, z: 0}
@@ -202,3 +204,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 16, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4747947574500582529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543616584247017146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c355f1a0fddb5409315cc08568ccc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squarePrefab: {fileID: 6629464683735195384, guid: 32f1d8745bf9e4745afa38fff87c0d1e, type: 3}
+  spawnPoint: {fileID: 7813948810438341272}
+  spawnInterval: 5
+  conveyorBelt: {fileID: 539675405916973609}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1bb75510d6d5348a409e04c2ce88d9, type: 3}
+  m_Name: Cutter
+  m_EditorClassIdentifier: 
+  type: 0
+  actionType: 2
+  image: {fileID: 190816186025448851, guid: 51b46ec867ee7c84b93bcc8fb8c5e56b, type: 3}
+  range: {x: 5, y: 4}
+  stackable: 1
+  itemCost: 40
+  prefabToPlace: {fileID: 6143699855018308214, guid: c43ae82c1cc738b4cb5adc1aec77f01d, type: 3}

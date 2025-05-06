@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1bb75510d6d5348a409e04c2ce88d9, type: 3}
+  m_Name: SpawnPoint
+  m_EditorClassIdentifier: 
+  type: 1
+  actionType: 4
+  image: {fileID: 2956541825629854486, guid: 0f054380f5305cf4aa994c6f4121fe9f, type: 3}
+  range: {x: 5, y: 4}
+  stackable: 1
+  itemCost: 0
+  prefabToPlace: {fileID: 1580584388866427521, guid: 8e5e667572c77fc43a136e2fface2bc0, type: 3}
