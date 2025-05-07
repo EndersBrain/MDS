@@ -4,23 +4,23 @@ using UnityEngine.UI;
 
 public class PopupController : MonoBehaviour
 {
-    public GameObject popupPanel; // Panelul care conține butoanele
-    public TextMeshProUGUI objectDataText; // Textul unde vom afișa datele obiectului
-    private int objectData = 0; // Exemplu de date care vor fi modificate
+    public GameObject popupPanel;
+    public TextMeshProUGUI objectDataText;
+    private int objectData = 0;
 
     void Start()
     {
-        popupPanel.SetActive(false); // Inițial ascundem pop-up-ul
+        popupPanel.SetActive(false);
     }
 
     public void ShowPopup()
     {
-        popupPanel.SetActive(true); // Activează pop-up-ul
+        popupPanel.SetActive(true);
     }
 
     public void HidePopup()
     {
-        popupPanel.SetActive(false); // Dezactivează pop-up-ul
+        popupPanel.SetActive(false);
     }
 
     public void TogglePopup()

@@ -20,7 +20,6 @@ public class GridSnapping2D : MonoBehaviour
     {
         Vector3Int cell = _tilemap.WorldToCell(rawWorldPos);
 
-        // Offset so multi-cell footprints center properly
         float halfX = (widthInCells - 1) * 0.5f;
         float halfY = (heightInCells - 1) * 0.5f;
         Vector3Int anchor = new Vector3Int(
@@ -29,7 +28,6 @@ public class GridSnapping2D : MonoBehaviour
             cell.z
         );
 
-        // Snap your object’s pivot to the exact center of that block of cells
         transform.position = _tilemap.GetCellCenterWorld(anchor);
     }
 

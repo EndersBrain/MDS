@@ -4,7 +4,7 @@ using UnityEngine;
 public class GridOverlay : MonoBehaviour
 {
     [Header("Grid Settings")]
-    public Shader lineShader;      // assign your unlit grid?line shader here
+    public Shader lineShader;      
     public Color lineColor = Color.white;
     public float cellSize = 1f;
     public int width = 20;
@@ -23,7 +23,6 @@ public class GridOverlay : MonoBehaviour
             return;
         }
 
-        // Create a Material from the shader
         _lineMat = new Material(lineShader)
         {
             hideFlags = HideFlags.HideAndDontSave
@@ -40,18 +39,13 @@ public class GridOverlay : MonoBehaviour
     {
         if (_lineMat == null) return;
 
-        // Update colors on the material (assumes your shader has a _Color property)
         _lineMat.SetColor("_Color", lineColor);
         _lineMat.SetPass(0);
 
         GL.PushMatrix();
-        // World?space coords; if you want clip?space, uncomment:
-        // GL.LoadOrtho();
-        // GL.MultMatrix(transform.localToWorldMatrix);
 
         GL.Begin(GL.LINES);
 
-        // Vertical lines
         for (int x = -width; x <= width; x++)
         {
             bool major = highlightEvery > 0 && x % highlightEvery == 0;
@@ -61,7 +55,6 @@ public class GridOverlay : MonoBehaviour
             GL.Vertex3(xp, height * cellSize, 0);
         }
 
-        // Horizontal lines
         for (int y = -height; y <= height; y++)
         {
             bool major = highlightEvery > 0 && y % highlightEvery == 0;

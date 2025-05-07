@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class PlacementManager : MonoBehaviour
 {
-    public Camera cam; // Assign your main camera
+    public Camera cam;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left click
+        if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
@@ -18,12 +18,12 @@ public class PlacementManager : MonoBehaviour
 
     void PlaceSelectedItem()
     {
-        Item selectedItem = ToolBarManager.instance.GetSelectedItem(true); // true = consume one
+        Item selectedItem = ToolBarManager.instance.GetSelectedItem(true);
         if (selectedItem == null || selectedItem.prefabToPlace == null)
             return;
 
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f; // Ensure z=0 in 2D
+        mousePos.z = 0f;
 
         Instantiate(selectedItem.prefabToPlace, SnapToGrid(mousePos), Quaternion.identity);
     }
