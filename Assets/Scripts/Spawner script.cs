@@ -15,9 +15,10 @@ public class Spawnerscript : MonoBehaviour
     {
         if(Time.time > nextSpawnTime)
         {
-            GameObject spawnObject = Instantiate(squarePrefab, spawnPoint.position, spawnPoint.rotation);
+            //GameObject spawnObject = Instantiate(squarePrefab, spawnPoint.position, spawnPoint.rotation);
             if(conveyorBelt != null)
             {
+                GameObject spawnObject = Instantiate(squarePrefab, spawnPoint.position, spawnPoint.rotation);
                 conveyorBelt.AddItem(spawnObject.transform);
             }
             nextSpawnTime = Time.time + spawnInterval;

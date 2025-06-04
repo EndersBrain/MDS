@@ -62,6 +62,10 @@ public class ToolBarManager : MonoBehaviour
                 itemInSlot.RefreshCount();
                 return true;
             }
+            else if (itemInSlot != null && itemInSlot.item == item && itemInSlot.item.stackable == false && itemInSlot.count != 0)
+            {
+                return false;
+            }
         }
 
         for (int i = 0; i < toolbarSlots.Length; i++)
@@ -107,5 +111,15 @@ public class ToolBarManager : MonoBehaviour
             return item;
         }
         return null;
+    }
+
+    public Item GetSelectedItemRaw()
+    {
+        if (selectedSlot < 0 || selectedSlot >= toolbarSlots.Length)
+            return null;
+
+        ToolBarSlot slot = toolbarSlots[selectedSlot];
+        ToolBarItem itemInSlot = slot.GetComponentInChildren<ToolBarItem>();
+        return itemInSlot != null ? itemInSlot.item : null;
     }
 }

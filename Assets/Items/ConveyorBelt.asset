@@ -16,6 +16,6 @@ MonoBehaviour:
   actionType: 3
   image: {fileID: 9133146717860029907, guid: 6a51b6ffcdf83eb49ac32b3362e93eec, type: 3}
   range: {x: 5, y: 4}
-  stackable: 1
+  stackable: 0
   itemCost: 25
   prefabToPlace: {fileID: 2543616584247017146, guid: b872ffa473e4b9748b02fb30ad1ce285, type: 3}

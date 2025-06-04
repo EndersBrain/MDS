@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 539675405916973609}
   - component: {fileID: 7099894753901877673}
   - component: {fileID: -4747947574500582529}
+  - component: {fileID: -4384354144039262461}
+  - component: {fileID: -6993066696709041118}
+  - component: {fileID: 7878157705516009232}
+  - component: {fileID: 9184616930921424751}
   m_Layer: 0
   m_Name: ConveyorBelt
   m_TagString: INFILL
@@ -80,11 +84,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 2, y: 5, z: 0}
-  - {x: 0, y: 5, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 15, y: 0, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2543616584247017146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3c355f1a0fddb5409315cc08568ccc6, type: 3}
   m_Name: 
@@ -220,3 +220,54 @@ MonoBehaviour:
   spawnPoint: {fileID: 7813948810438341272}
   spawnInterval: 5
   conveyorBelt: {fileID: 539675405916973609}
+--- !u!114 &-4384354144039262461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543616584247017146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1a15ee6d5e1bc45b80038ad5ebb0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+--- !u!114 &-6993066696709041118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543616584247017146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc298d0a4c768274c97b75c8ff4aead3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthInCells: 1
+  heightInCells: 1
+--- !u!114 &7878157705516009232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543616584247017146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef957e2da133a8144aa172140d7d8661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9184616930921424751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543616584247017146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefc615118fce3a4ea179a459cc632ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

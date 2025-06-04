@@ -36,10 +36,27 @@ public class ShopPopUpManager : MonoBehaviour
         ToolBarManager toolBarManager = FindFirstObjectByType<ToolBarManager>();
         if (playerMoney >= item.itemCost)
         {
-            playerMoney -= item.itemCost;
-            toolBarManager.AddItem(item);
-            Debug.Log($"Bought {item.name} for {item.itemCost} money. Remaining money: {playerMoney}");
-            UpdateMoneyText();
+            if (toolBarManager.AddItem(item) == false)
+            {
+                foreach (var slot in toolBarManager.toolbarSlots)
+                {
+                    ToolBarItem itemInSlot = slot.GetComponentInChildren<ToolBarItem>();
+                    if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count > 0)
+                    {
+                        itemInSlot.count--;
+                        itemInSlot.RefreshCount();
+                        Debug.Log("Decreased item count in slot due to failed add.");
+                        break;
+                    }
+                }
+                Debug.Log("Failed to add item to toolbar.");
+            }
+            else
+            {
+                playerMoney -= item.itemCost;
+                UpdateMoneyText();
+                Debug.Log("Item bought: " + item.name);
+            }
         }
         else
         {
