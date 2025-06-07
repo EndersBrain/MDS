@@ -46,7 +46,7 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
             for (int y = 0; y < 3; y++)
             {
                 GameObject prefab = grid[y, x] ? activePrefab : inactivePrefab;
-                Vector3 pos = origin + new Vector3(x * cellSize, (2 - y) * cellSize, 0);
+                Vector3 pos = origin + new Vector3(x * cellSize, (1 - y) * cellSize, 0); //era 2-y
                 instantiatedObjects[x, y] = Instantiate(prefab, pos, Quaternion.identity, transform);
                 instantiatedObjects[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
             }
