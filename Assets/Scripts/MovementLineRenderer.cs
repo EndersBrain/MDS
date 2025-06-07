@@ -47,9 +47,23 @@ public class ConveyorPlacer : MonoBehaviour
             mousePos.x = Mathf.RoundToInt(mousePos.x);
             mousePos.y = Mathf.RoundToInt(mousePos.y);
             mousePos.z = 0f;
-            points.Add(mousePos);
-            currentLine.positionCount = points.Count;
-            currentLine.SetPositions(points.ToArray());
+
+            int pcnt = points.Count;
+
+            // if(pcnt > 0)
+            //     Debug.Log(points[pcnt - 1]);
+
+            if(pcnt == 0 || points[pcnt - 1].x == mousePos.x || points[pcnt - 1].y == mousePos.y)
+            {
+                points.Add(mousePos);
+                currentLine.positionCount = points.Count;
+                currentLine.SetPositions(points.ToArray());
+                Debug.Log(points[pcnt - 1]);
+            }
+
+            // points.Add(mousePos);
+            // currentLine.positionCount = points.Count;
+            // currentLine.SetPositions(points.ToArray());
         }
 
         if (Input.GetMouseButtonDown(1))
