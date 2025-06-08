@@ -24,4 +24,18 @@ public class Spawnerscript : MonoBehaviour
             nextSpawnTime = Time.time + spawnInterval;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (conveyorBelt == null)
+        {
+            ConveyorBelt belt = other.GetComponentInParent<ConveyorBelt>();
+            if (belt != null)
+            {
+                conveyorBelt = belt;
+                Debug.Log("Assigned ConveyorBelt: " + belt.name);
+            }
+        }
+    }
+
 }

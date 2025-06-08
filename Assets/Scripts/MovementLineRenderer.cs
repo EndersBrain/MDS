@@ -45,7 +45,7 @@ public class ConveyorPlacer : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.x = Mathf.RoundToInt(mousePos.x);
-            mousePos.y = Mathf.RoundToInt(mousePos.y);
+            mousePos.y = Mathf.RoundToInt(mousePos.y) + 0.5f; // Adjust Y to align with conveyor belt height
             mousePos.z = 0f;
 
             int pcnt = points.Count;

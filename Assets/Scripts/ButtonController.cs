@@ -7,6 +7,13 @@ public class ButtonController : MonoBehaviour
 {
     public Cutter cutter;
 
+    void Update()
+    {
+        GameObject cutterObj = GameObject.Find("Cutter");
+        if (cutterObj != null)
+            cutter = cutterObj.GetComponent<Cutter>();
+    }
+
     public void SetCutterReference(Cutter c)
     {
         cutter = c;

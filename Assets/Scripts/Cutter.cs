@@ -5,7 +5,7 @@ public class Cutter : MonoBehaviour
 {
     public GameObject squarePrefab;
     public GameObject squarePrefab1;
-    public Transform endPoint;
+    //public Transform endPoint;
     public enum CutterType
     {
         Recycler, Trasher
@@ -27,7 +27,7 @@ public class Cutter : MonoBehaviour
         v = new bool[3, 3];
         cnt = 0;
         taieri = new bool[3, 3] { { false, false, false }, { false, false, false }, { false, false, false } };
-        endPoint = GameObject.Find("EndPoint").transform;
+        //endPoint = GameObject.Find("EndPoint").transform;
     }
 
     public void ToggleTaieri(int row, int col)
@@ -173,5 +173,16 @@ public class Cutter : MonoBehaviour
     {
         yield return new WaitForSeconds(1.1f);
     }
+
+    // private void OnMouseDown()
+    // {
+    //     ButtonController controller = FindFirstObjectByType<ButtonController>();
+    //     if (controller != null)
+    //     {
+    //         controller.SetCutterReference(this);
+    //         Debug.Log("Cutter manually selected.");
+    //     }
+    // }
+
 }
 
