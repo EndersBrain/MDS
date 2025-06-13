@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+>
+    <!-- Hotbar container -->
+    <engine:VisualElement name="Hotbar" class="hotbar">
+        <!-- Hotbar Buttons -->
+        <engine:Button name="HotbarButton1" class="hotbar-button1">
+            <engine:Image name="HotbarButtonImage1" class="hotbar-button-image" source="Resources/Factory.png" />
+        </engine:Button>
+
+        <engine:Button name="HotbarButton2" class="hotbar-button2">
+            <engine:Image name="HotbarButtonImage2" class="hotbar-button-image" source="Resources/Saw.png" />
+        </engine:Button>
+
+        <engine:Button name="HotbarButton3" class="hotbar-button3">
+            <engine:Image name="HotbarButtonImage3" class="hotbar-button-image" source="Resources/Rotator.png" />
+        </engine:Button>
+    </engine:VisualElement>
+</engine:UXML>
