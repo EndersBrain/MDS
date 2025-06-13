@@ -4,8 +4,8 @@
 Proiectul dezvoltat de echipa noastra este un joc in Unity. Jocul este de tip factory building, ce are ca scop taierea unor blocuri de tip matrice 3x3, ce trebuie sa ajunga la destinatia dorita pentru a termina misiunea.
 
 ## Autori
-- **Lupu Andrei**
 - **Moise Andrei**
+- **Lupu Andrei**
 - **Buhnia Tudor**
 - **Voinea Ionut-Florin**
 
@@ -52,3 +52,7 @@ In Unity, we structure our entire game loop around core design patterns. One of 
 When it came to AI, results were a mixed bag—about a 25-75% chance between generating something brilliant or metaphorically shooting ourselves in the foot with a 12-gauge slug. It often misunderstood the code, occasionally overcorrecting perfectly fine snippets, or suggesting overly complex solutions that added layers of confusion rather than clarity. Many ideas looked clever at first glance but ultimately required several frustrating rounds of “decoding” what felt like alphabet soup. That said, when it did work, the output was genuinely impressive—though definitely hit or miss.
 
 A perfect example was our experience with image generation for art prototypes. One team member tried to create a curved sprite for a conveyor belt, but instead got an image of a random middle-aged man sitting in front of what looked like two squiggly lines. It was both hilarious and infuriating.
+
+
+##PS
+Music by Muntean Dan-Radu (Friend)
