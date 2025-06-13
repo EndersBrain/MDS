@@ -16,7 +16,7 @@ https://ogquad.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?selec
 https://docs.google.com/presentation/d/1Qxca-4ycu5Uu8pSQticduQEl5QoC5UI6XlLYDB-UABY/edit?usp=sharing
 
 ## Diagrama
-![image](["MDS.draw.io"](https://cdn.discordapp.com/attachments/1182007921769451530/1369682946272923678/MDS.drawio.png?ex=684cdee5&is=684b8d65&hm=1ce690c87b454844ec0954334fec3c50615a74cc9adb5d335149ac6a46ec412a&))
+![Screenshot](MDS.drawio.png)
 
 ## User Stories
 # Player
