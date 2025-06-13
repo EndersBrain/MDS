@@ -53,6 +53,5 @@ When it came to AI, results were a mixed bag—about a 25-75% chance between gen
 
 A perfect example was our experience with image generation for art prototypes. One team member tried to create a curved sprite for a conveyor belt, but instead got an image of a random middle-aged man sitting in front of what looked like two squiggly lines. It was both hilarious and infuriating.
 
-
 ##PS
 Music by Muntean Dan-Radu (Friend)
