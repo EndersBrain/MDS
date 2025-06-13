@@ -1,92 +1,74 @@
+using System.Collections;
 using UnityEngine;
-
 public class BooleanGridRuntimeRenderer : MonoBehaviour
 {
-
     public float speed;
-    public bool[,] grid = new bool[3, 3]
+    private bool[,] grid = new bool[3, 3]
     {
-        { true, false, true },
-        { false, true, false },
-        { true, false, true }
+        {true, true, true},
+        {true, true, true},
+        {true, true, true}
     };
-
-    public GameObject activePrefab;   // Prefab for active state
-    public GameObject inactivePrefab; // Prefab for inactive state
+    public GameObject activePrefab;
+    public GameObject inactivePrefab;
     public float cellSize = 1.0f;
-    
-
-    // Added: scale factor to resize prefabs upon instantiation
-    
-
-    private GameObject[,] instantiatedObjects;
-
+    private GameObject[,] instantiatedObjects = new GameObject[3, 3];
+    private bool isUpdating = false;
     void Start()
     {
-       
         instantiatedObjects = new GameObject[3, 3];
-
-        Vector3 origin = transform.position;
-
-        for (int x = 0; x < 3; x++)
-        {
-            for (int y = 0; y < 3; y++)
-            {
-                GameObject prefab = grid[x, y] ? activePrefab : inactivePrefab;
-                Vector3 pos = origin + new Vector3(x * cellSize, y * cellSize, 0);
-
-                instantiatedObjects[x, y] = Instantiate(prefab, pos, Quaternion.identity, transform);
-
-                // Apply the desired 2D scale here:
-                instantiatedObjects[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
-            }
-        }
+        UpdateGridRendering();
     }
-
     public void UpdateGridRendering()
     {
+        if (isUpdating)
+            return;
+        StartCoroutine(UpdateGridRenderingCoroutine());
+    }
+    private IEnumerator UpdateGridRenderingCoroutine()
+    {
+        isUpdating = true;
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
             {
-                GameObject prefab = grid[x, y] ? activePrefab : inactivePrefab;
-
-                if (instantiatedObjects[x, y])
+                if (instantiatedObjects[x, y] != null)
+                {
                     Destroy(instantiatedObjects[x, y]);
-
-                Vector3 pos = transform.position + new Vector3(x * cellSize, y * cellSize, 0);
+                    instantiatedObjects[x, y] = null;
+                }
+            }
+        }
+        yield return new WaitForEndOfFrame();
+        Vector3 origin = transform.position;
+        for (int x = 0; x < 3; x++)
+        {
+            for (int y = 0; y < 3; y++)
+            {
+                GameObject prefab = grid[y, x] ? activePrefab : inactivePrefab;
+                Vector3 pos = origin + new Vector3((x - 1) * cellSize, (1 - y) * cellSize, 0); //era 2-y
                 instantiatedObjects[x, y] = Instantiate(prefab, pos, Quaternion.identity, transform);
-
-                // Apply scale again when updating grid:
                 instantiatedObjects[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
             }
         }
+        isUpdating = false;
     }
-
-    public void setCell(int Linie, int Coloana, bool Value)
+    public void setCell(int x, int y, bool value)
     {
-        this.grid[Linie,Coloana]=Value;
+        this.grid[x, y] = value;
     }
     public bool getCell(int x, int y)
     {
-        return this.grid[x, y];
+        return grid[x, y];
     }
     public void FillObject()
     {
         grid = new bool[3, 3]
         {
-            { true, true, true },
-            { true, true, true },
-            { true, true, true },
+            {true, true, true},
+            {true, true, true},
+            {true, true, true}
         };
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("INFILL"))
-        {
-            FillObject();
-            UpdateGridRendering();
-        }
     }
     private void Update()
     {

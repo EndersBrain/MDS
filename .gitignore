@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.json
+.plastic/plastic.wktree
+.plastic/plastic.wktree
+.plastic/plastic.wktree
