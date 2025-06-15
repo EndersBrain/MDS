@@ -65,3 +65,8 @@ Music by Muntean Dan-Radu (Friend)
 [Link catre joc](https://drive.google.com/file/d/1E1JRSG1uJeyMnVY4HtLCuhhFW3-HjA4y/view?usp=drive_link)
 
 # TESTE
+
+[Fisierul pentru testele unitare generate automat si facut cu coding standards](Assets/Scripts/TesteUnitare.cs)
+
+[Singleton-ul ](Assets/Scripts/InputBlocker.cs)
+[Si unde a fost folosit singleton-ul mai departe in cod](Assets/Scripts/PlacementManager.cs#43)
