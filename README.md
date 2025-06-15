@@ -17,13 +17,12 @@ https://docs.google.com/presentation/d/1Qxca-4ycu5Uu8pSQticduQEl5QoC5UI6XlLYDB-U
 
 ## Diagrama
 ![Screenshot](MDS.drawio.png)
-
 Scene Maps
+
 ![Diagrama_Blocks](Block_Interactions(2).drawio.png)
-
 Interactiunea blocurilor cu alte obiecte
-![Diagrama_Conveyour](LegaturaConveyorObiecte.png)
 
+![Diagrama_Conveyour](LegaturaConveyorObiecte.png)
 Interactiunea Conveyor Belt-urilor cu alte obiecte.
 
 ## User Stories
