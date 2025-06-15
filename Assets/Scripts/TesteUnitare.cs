@@ -11,29 +11,30 @@ public class TesteUnitare : MonoBehaviour
     // Binary masks representing cutter configurations
     private readonly int[] _cutters = { 448, 56, 7, 292, 146, 73, 273, 84 };
 
-    private const int NumberOfInstances = 15; 
-    private const float StepSize = 2f;          
-    private const int MatrixSize = 3;           
+    private const int NumberOfInstances = 15;
+    private const float StepSize = 2f;
+    private const int MatrixSize = 3;
 
     private void Start()
     {
         for (int i = 0; i < NumberOfInstances; i++)
         {
-            // Initial spawn position for each chain (staggered vertically)
+            // spawnPoint position for each test
             Vector3 spawnPosition = new Vector3(0.5f, i * StepSize + 0.5f, -1f);
-            
-            // Spawn spawner
+
+            // Add spawner
             Instantiate(spawnerPrefab, spawnPosition, Quaternion.identity);
 
             // Place 5 conveyor belts to the right
             spawnPosition = SpawnConveyors(spawnPosition, 5);
 
-            // Spawn cutter and apply cutter mask
-            GameObject cutter = Instantiate(cutterPrefab, spawnPosition + Vector3.right, Quaternion.identity);
+            // Spawn cutter and get the cutter type from the conversion decimal to binary
+            Vector3 cutterPos = new Vector3(spawnPosition.x, spawnPosition.y, 0f);
+            GameObject cutter = Instantiate(cutterPrefab, cutterPos + Vector3.right, Quaternion.identity);
             ApplyCutterMatrix(cutter, _cutters[i % _cutters.Length]);
             spawnPosition += Vector3.right;
 
-            // For the last 7 chains, also place a rotator after 2 more conveyors
+            // For the last 7 chains place a rotator after 2 more conveyors
             if (i >= 8)
             {
                 spawnPosition = SpawnConveyors(spawnPosition, 2);
@@ -45,19 +46,20 @@ public class TesteUnitare : MonoBehaviour
             spawnPosition = SpawnConveyors(spawnPosition, 2);
             spawnPosition += Vector3.right;
 
-            // Spawn endpoint and apply endpoint mask (optionally rotated)
+            // Place endpoint with the same value from the cutter to test if the cutter's algorithm works correctly
             GameObject endpoint = Instantiate(endpointPrefab, spawnPosition, Quaternion.identity);
             ApplyEndpointMatrix(endpoint, _cutters[i % _cutters.Length], i > 7);
         }
     }
- 
+
     private Vector3 SpawnConveyors(Vector3 startPos, int count)
     {
         for (int j = 0; j < count; j++)
         {
             startPos += Vector3.right;
-            Quaternion rotation = Quaternion.Euler(0f, 0f, -90f);  // Rotate to face forward
-            Instantiate(conveyorPrefab, startPos, rotation);
+            Vector3 conveyorPos = new Vector3(startPos.x, startPos.y, 0f);
+            Quaternion rotation = Quaternion.Euler(0f, 0f, -90f);  // Make the conveyor belt point to the right
+            Instantiate(conveyorPrefab, conveyorPos, rotation);
         }
         return startPos;
     }
@@ -71,8 +73,8 @@ public class TesteUnitare : MonoBehaviour
             cutterScript.taieri = matrix;
         }
     }
-    
-    // Applies a (possibly rotated) 3x3 matrix to an endpoint based on the given mask.
+
+    // Find the endpoint's configuration. Check if there was a rotator and adjust the expected output.
     private void ApplyEndpointMatrix(GameObject endpoint, int mask, bool isRotated)
     {
         bool[,] original = ConvertMaskToMatrix(mask);
@@ -89,8 +91,8 @@ public class TesteUnitare : MonoBehaviour
             }
         }
     }
-    
-    // Converts a binary int mask into a 3x3 matrix (right-to-left, bottom-to-top).
+
+    // Converts a binary int mask into a 3x3 matrix
     private bool[,] ConvertMaskToMatrix(int mask)
     {
         bool[,] matrix = new bool[MatrixSize, MatrixSize];
@@ -104,8 +106,8 @@ public class TesteUnitare : MonoBehaviour
         }
         return matrix;
     }
-    
-    // Rotates a 3x3 matrix 90 degrees clockwise.
+
+    // Rotates a 3x3 matrix 90 degrees to the right.
     private bool[,] RotateMatrix(bool[,] original)
     {
         bool[,] rotated = new bool[MatrixSize, MatrixSize];
