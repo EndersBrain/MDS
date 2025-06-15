@@ -70,3 +70,5 @@ Music by Muntean Dan-Radu (Friend)
 
 - [Singleton-ul ](Assets/Scripts/InputBlocker.cs)
 - [Si unde a fost folosit singleton-ul mai departe in cod la linia 43](Assets/Scripts/PlacementManager.cs#43)
+- [Video cu testele](2025-06-15 17-28-49 (1).mkv)
+
