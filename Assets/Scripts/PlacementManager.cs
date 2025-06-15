@@ -40,14 +40,14 @@ public class PlacementManager : MonoBehaviour
         }
         if (ToolbarController.Instance.selectedPrefab == null)
         {
-            InputBlocker.blockScrollZoom = false;
+            InputBlocker.Instance.blockScrollZoom = false;
             ClearPreview();
             ultimul = null;
             return;
         }
         if (ToolbarController.Instance.selectedPrefab != ultimul || preview == null)
         {
-            InputBlocker.blockScrollZoom = false;
+            InputBlocker.Instance.blockScrollZoom = false;
             currentRotation = 0f;
             ultimul = ToolbarController.Instance.selectedPrefab;
             ClearPreview();
@@ -88,10 +88,10 @@ public class PlacementManager : MonoBehaviour
             canRotate = ToolbarController.Instance.staySelected[ToolbarController.Instance.selectat];
         if (!canRotate)
         {
-            InputBlocker.blockScrollZoom = false;
+            InputBlocker.Instance.blockScrollZoom = false;
             return;
         }
-        InputBlocker.blockScrollZoom = true;
+        InputBlocker.Instance.blockScrollZoom = true;
         if (Input.GetKeyDown(KeyCode.R))
             RotateBy(-90f);
         float scroll = Input.GetAxis("Mouse ScrollWheel");
