@@ -69,4 +69,4 @@ Music by Muntean Dan-Radu (Friend)
 [Fisierul pentru testele unitare generate automat si facut cu coding standards](Assets/Scripts/TesteUnitare.cs)
 
 - [Singleton-ul ](Assets/Scripts/InputBlocker.cs)
-- [Si unde a fost folosit singleton-ul mai departe in cod](Assets/Scripts/PlacementManager.cs#43)
+- [Si unde a fost folosit singleton-ul mai departe in cod la linia 43](Assets/Scripts/PlacementManager.cs#43)
