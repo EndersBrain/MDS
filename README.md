@@ -17,6 +17,8 @@ https://docs.google.com/presentation/d/1Qxca-4ycu5Uu8pSQticduQEl5QoC5UI6XlLYDB-U
 
 ## Diagrama
 ![Screenshot](MDS.drawio.png)
+![Diagrama_Blocks](Block_Interactions(2).drawio.png)
+![Diagrama_Conveyour](LegaturaConveyorObiecte.png)
 
 ## User Stories
 # Player
