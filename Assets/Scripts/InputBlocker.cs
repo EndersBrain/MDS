@@ -1,4 +1,18 @@
-public static class InputBlocker//Blocheaza zone cand incepi sa rotesti un obiect
+public class InputBlocker
 {
-    public static bool blockScrollZoom = false;
+    private static InputBlocker _instance;
+
+    public static InputBlocker Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = new InputBlocker();
+            return _instance;
+        }
+    }
+
+    private InputBlocker() { }
+
+    public bool blockScrollZoom = false;
 }
